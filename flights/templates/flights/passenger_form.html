@@ -1,0 +1,13 @@
+{% extends "flights/layout.html" %} 
+
+{% block title %}Créer un passager{%endblock %} 
+
+{% block content %}
+<h1>Créer un passager</h1>
+
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Enregistrer le passager</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "flights/layout.html" %}
+
+
+{% block title %}Liste des vols{% endblock %}
+
+
+{% block content %}
+<h1>Liste des vols</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Départ</th>
+            <th>Destination</th>
+            <th>Durée (minutes)</th>
+            <th>Passagers</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for flight in flights %}
+        <tr>
+            <td>{{ flight.origin.code }}</td>
+            <td>{{ flight.destination.code }}</td>
+            <td>{{ flight.duration }}</td>
+            <td>
+        {% for passenger in flight.passengers.all %} {{ passenger.name }}
+        {% if not forloop.last %}, 
+        {% endif %} 
+        {% empty %} Aucun passager {% endfor %}
+             </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Aucun vol enregistré.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

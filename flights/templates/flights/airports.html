@@ -1,0 +1,31 @@
+{% extends "flights/layout.html" %} 
+{% block title %}Liste des aéroports {% endblock %} 
+
+{% block content %}
+<h1>Liste des aéroports</h1>
+
+<p>
+  <a href="{% url 'flights:airport_create' %}"> Créer un aéroport </a>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Ville</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for airport in airports %}
+    <tr>
+      <td>{{ airport.code }}</td>
+      <td>{{ airport.city }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="2">Aucun aéroport enregistré.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

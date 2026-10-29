@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Airline{% endblock %}</title>
+  </head>
+  <body>
+    <nav>
+      <a href="{% url 'flights:index' %}">Vols</a> |
+      <a href="{% url 'flights:airports' %}">Aéroports</a> |
+      <a href="{% url 'flights:passengers' %}">Passagers</a>
+    </nav>
+
+    <hr />
+
+    <p>
+      Créer :
+      <a href="{% url 'flights:airport_create' %}">un aéroport</a> |
+      <a href="{% url 'flights:flight_create' %}">un vol</a> |
+      <a href="{% url 'flights:passenger_create' %}">un passager</a>
+    </p>
+
+    <main>{% block content %}{% endblock %}</main>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "flights/layout.html" %}
+
+
+{% block title %}Créer un vol{% endblock %}
+
+
+{% block content %}
+<h1>Créer un vol</h1>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer le vol</button>
+</form>
+
+
+{% endblock %}
