@@ -1,13 +1,29 @@
-{% extends "flights/layout.html" %} 
-
-{% block title %}Créer un passager{%endblock %} 
+{% extends "flights/layout.html" %}
+{% load django_bootstrap5 %}
 
 {% block content %}
-<h1>Créer un passager</h1>
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h1 class="h3 mb-4">Créer un passager</h1>
 
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Enregistrer le passager</button>
-</form>
+                <form method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
 
+                    <div class="d-flex gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            Enregistrer
+                        </button>
+                        <a href="{% url 'flights:passengers' %}"
+                           class="btn btn-outline-secondary">
+                            Annuler
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

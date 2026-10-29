@@ -14,7 +14,8 @@ A small Django application for keeping track of airports, flights, and passenger
 - Python
 - Git
 
-The Python dependency is pinned in `requirements.txt` (Django 6.1.1).
+Python dependencies are pinned in `requirements.txt` (Django and `django-bootstrap5`).
+Bootstrap's CSS is loaded from jsDelivr in the shared template, so no separate Bootstrap download is needed.
 
 ## Clone and run on Windows
 
@@ -26,7 +27,7 @@ cd airline-passagers-create
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
@@ -72,5 +73,3 @@ python manage.py test
 | `/admin/`                     | Django admin       |
 
 To sign in to the admin site, create a local administrator account with `python manage.py createsuperuser` and follow the prompts.
-
-
