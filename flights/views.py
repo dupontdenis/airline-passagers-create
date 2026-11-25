@@ -19,15 +19,23 @@ def index(request):
     )
 
 
+# def airports(request):
+#     airports = Airport.objects.all().order_by("city", "code")
+
+#     return render(
+#         request,
+#         "flights/airports.html",
+#         {"airports": airports},
+#     )
+
 def airports(request):
-    airports = Airport.objects.all().order_by("city", "code")
+    airports = Airport.objects.all()
+    headers = ["Code", "Ville"]
 
-    return render(
-        request,
-        "flights/airports.html",
-        {"airports": airports},
-    )
-
+    return render(request, "flights/airports.html", {
+        "airports": airports,
+        "headers": headers,
+    })
 
 def passengers(request):
     passengers = (
